@@ -67,10 +67,10 @@ jobs:
         run: |
           echo "Currently  examples/examples/snapshot/ html files size ===>"
           echo $(find examples/examples/snapshot/ -type f -name "*.html" | wc -l)
-          echo "::set-output name=SNAPSHOT_FILE_SIZE::$(find examples/examples/snapshot/ -type f -name "*.html" | wc -l)" 
+          echo "SNAPSHOT_FILE_SIZE=$(find examples/examples/snapshot/ -type f -name "*.html" | wc -l)" >> $GITHUB_OUTPUT
           echo "Currently  examples/examples/html/ html files size ===>"
           echo $(find examples/examples/html/ -type f -name "*.html" | wc -l)
-          echo "::set-output name=GENERATED_FILE_SIZE::$(find examples/examples/html/ -type f -name "*.html" | wc -l)"
+          echo "GENERATED_FILE_SIZE=$(find examples/examples/html/ -type f -name "*.html" | wc -l)" >> $GITHUB_OUTPUT
           echo "Currently  examples/examples/snapshot/ html details ===>"
           ls examples/examples/snapshot/
           echo "Currently  examples/examples/html/ html details ===>"
