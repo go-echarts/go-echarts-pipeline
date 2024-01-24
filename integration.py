@@ -56,8 +56,6 @@ if len(SNAPSHOT_HTML) != len(GENERATED_HTML):
 
 FAILED_RESULT = {}
 for file, snapshot_html_path in SNAPSHOT_HTML.items():
-    if IGNORE_CHARTS.index(file) != -1:
-        continue
     with open(snapshot_html_path, 'r') as snapshot:
         snapshot_content = snapshot.read()
 
