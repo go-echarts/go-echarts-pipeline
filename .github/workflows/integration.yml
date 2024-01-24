@@ -93,6 +93,7 @@ jobs:
       - name: Start compare files contents
         run: |
           ls 
-          mv examples/examples/examples/ .
+          mv examples/examples/snapshot .
+          mv examples/examples/html .
           ls
           python go-echarts-pipeline/integration.py
