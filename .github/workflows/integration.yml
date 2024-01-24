@@ -5,7 +5,7 @@ on:
   workflow_call:
 
 jobs:
-  checkout-examples:
+  go-echarts-pipeline:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
