@@ -2,8 +2,8 @@ import os
 
 print("hello go-echarts!")
 
-SNAPSHOT_FOLDER = "../snapshot"
-GENERATED_FOLDER = "../html"
+SNAPSHOT_FOLDER = "./snapshot"
+GENERATED_FOLDER = "./html"
 HTML_SUFFIX = ".html"
 SNAPSHOT_HTML = {}
 GENERATED_HTML = {}
@@ -17,6 +17,9 @@ for root, dirs, files in os.walk(GENERATED_FOLDER):
     for file in files:
         if file.endswith(HTML_SUFFIX):
             GENERATED_HTML[file] = (os.path.join(root, file))
+
+print(f"Get SNAPSHOT_HTML size {len(SNAPSHOT_HTML)}")
+print(f"Get GENERATED_HTML size {len(GENERATED_HTML)}")
 
 FAILED_RESULT = []
 for file, path in SNAPSHOT_HTML.items():
