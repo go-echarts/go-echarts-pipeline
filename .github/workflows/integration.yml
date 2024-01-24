@@ -95,5 +95,6 @@ jobs:
           ls 
           mv examples/examples/snapshot ./go-echarts-pipeline/
           mv examples/examples/html ./go-echarts-pipeline/
+          cd go-echarts-pipeline
           ls
-          python go-echarts-pipeline/integration.py
+          python integration.py
