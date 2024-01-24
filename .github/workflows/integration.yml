@@ -92,4 +92,5 @@ jobs:
 
       - name: Start compare files contents
         run: |
+          ls 
           python go-echarts-pipeline/integration.py
