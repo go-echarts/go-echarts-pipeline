@@ -12,13 +12,31 @@
 
 # How to
 
-In this integration test, it will `close` both `go-echarts/go-echarts`
+In this integration test, it will `clone` both `go-echarts/go-echarts`
 and `go-echarts/examples` repo.
 The `go-echarts/examples` contains lots of showcases, it can be the test cases also.
-Assumptions of this pipeline is we could compare the generated content (with latest `go-echarts` codebase)
-and snapshot content (with latest `go-echarts` release) to distinguish any changes.
 
-Currently, it is WIP and only check the generated content must not be empty. :sweat_smile:
+Idea of this pipeline is that we can compare the generated content (with latest `go-echarts` codebase)
+with the snapshot content (with latest `go-echarts` release) to distinguish any changes.
+
+Technically, it will mask all the `Rand` mock things such as `numbers`, `chartID`...etc, then
+checking the generated content must be same.
+
+If something's wrong, it will output the `diff` details. i.e.
+
+```shell
+------------------------------
+Compare files failed with bar.html
+Diff result from generated_content to snapshot_content : 
+ 
+- <script type="text/javascript">
++ <script2333 type="text/javascript">
+- </script>
++ </scri123pt>
+
+-------------------------------
+
+```
 
 # License
 
