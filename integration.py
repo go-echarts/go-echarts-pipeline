@@ -30,16 +30,16 @@ for file, path in SNAPSHOT_HTML.items():
     with open(generated_html_path, 'r') as generated:
         generated_content = generated.read()
 
-    print(f"current compare files: ${file}")
+    print(f"current compare files: {file}")
     if len(generated_content) != 0:
-        print(f"current compare files: ${file} is same! pass")
+        print(f"current compare files: {file} is same! pass")
     else:
-        print(f"current compare files: ${file} is different! failed")
+        print(f"current compare files: {file} is different! failed")
         # print(f"snapshot file content: ${snapshot_content}")
         print("\n")
-        print(f"generated file content: ${generated_content}")
+        print(f"generated file content: {generated_content}")
         FAILED_RESULT.append(file)
 
 if len(FAILED_RESULT) > 0:
-    print(f"Compare files failed with ${FAILED_RESULT}")
+    print(f"Compare files failed with {FAILED_RESULT}")
     exit(1)

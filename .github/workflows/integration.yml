@@ -92,7 +92,6 @@ jobs:
 
       - name: Start compare files contents
         run: |
-          ls 
           mv examples/examples/snapshot ./go-echarts-pipeline/
           mv examples/examples/html ./go-echarts-pipeline/
           cd go-echarts-pipeline
