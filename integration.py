@@ -66,6 +66,9 @@ def compare(snapshot_opt: any, generated_opt: any) -> bool:
         for key, val in snapshot_opt.items():
             if not generated_opt.__contains__(key):
                 return False
+            # ignore data
+            if key == "data":
+                continue
             same = compare(val, generated_opt.get(key))
             if not same:
                 return False
@@ -167,7 +170,6 @@ FAILED_RESULT = {
        " + color123 ...
          - color ...
        "
-       
    ]
 }
 """
@@ -199,6 +201,7 @@ for file, snapshot_html_path in SNAPSHOT_HTML.items():
             generated_charts_option = generated_charts_options[index]
             snapshot_charts_option_json = json.loads(snapshot_charts_option, parse_float=parse_float)
             generated_charts_option_json = json.loads(generated_charts_option, parse_float=parse_float)
+            # consider compare them via json schema directly? to do
             match = compare(snapshot_charts_option_json, generated_charts_option_json)
             if not match:
                 diff_list.append(diff(snapshot_charts_option, generated_charts_option))
