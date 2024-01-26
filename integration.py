@@ -25,12 +25,13 @@ IGNORE_CHARTS = ["treemap.html"]
 
 def compare(snapshot_opt: any, generated_opt: any) -> bool:
     """
-    Return where current snapshot_opt and generated_opt is same or not.
-    Skip replace numbers, simply check mask contents
+    Return the result that current snapshot_opt and generated_opt options have same keys and structures or not.
+    Skip check numbers/data values (int), Skip check masked contents
+    If all data is same in List, choose one to check is faster
     Allow to have same keys in dict without same sort
     :param snapshot_opt:
     :param generated_opt:
-    :return: same or not
+    :return: same structure or not
     """
     if snapshot_opt is None and generated_opt is None:
         return True

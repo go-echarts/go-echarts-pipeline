@@ -16,10 +16,11 @@ In this integration test, it will `clone` both `go-echarts/go-echarts`
 and `go-echarts/examples` repo.
 The `go-echarts/examples` contains lots of showcases, it can be the test cases also.
 
-Idea of this pipeline is that we can compare the generated content (with latest `go-echarts` codebase)
-with the snapshot content (with latest `go-echarts` release) to distinguish any changes.
+Idea of this pipeline is that we can compare the generated options (with latest `go-echarts` codebase)
+with the snapshot options (with latest `go-echarts` release version) to distinguish any breaking structure/option
+change.
 
-Technically, it will mask all the `Rand` mock things such as `numbers`, `chartID`...etc, then
+Technically, it will mask all the `random` mock things such as `numbers`, `chartID`...etc and `function string`, then
 checking the generated options must be same (same keys, same structure).
 
 If something's wrong, it will output the `diff` details. i.e.
