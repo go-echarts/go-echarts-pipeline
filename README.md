@@ -20,14 +20,14 @@ Idea of this pipeline is that we can compare the generated content (with latest 
 with the snapshot content (with latest `go-echarts` release) to distinguish any changes.
 
 Technically, it will mask all the `Rand` mock things such as `numbers`, `chartID`...etc, then
-checking the generated content must be same.
+checking the generated options must be same (same keys, same structure).
 
 If something's wrong, it will output the `diff` details. i.e.
 
 ```shell
 ------------------------------
 Compare files failed with bar.html
-Diff result from generated_content to snapshot_content : 
+Find different options from generated_content to snapshot_content : 
  
 - <script type="text/javascript">
 + <script2333 type="text/javascript">
