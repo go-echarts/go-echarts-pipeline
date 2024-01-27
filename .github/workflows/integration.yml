@@ -3,6 +3,10 @@ name: Integration test
 on:
   workflow_dispatch:
   workflow_call:
+    ref-branch:
+      required: false
+      type: string
+      default: ''
 
 jobs:
   go-echarts-pipeline:
@@ -15,12 +19,16 @@ jobs:
         with:
           go-version: '1.18'
 
+      - name: Checkout Example branch
+        run: |
+          echo "Checkout Example branch is: ${{ inputs.ref-branch }}, empty means default branch "
+
       - name: Checkout another repository
         uses: actions/checkout@v4
         with:
           repository: 'go-echarts/examples'
           #         remove
-          ref: 'v2.4-rc'
+          ref: ${{ inputs.ref-branch }}
           path: 'examples'
 
       - name: Check repos
