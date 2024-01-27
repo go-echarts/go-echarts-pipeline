@@ -28,7 +28,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: 'go-echarts/examples'
-          #         remove
           ref: ${{ inputs.ref-branch }}
           path: 'examples'
 
