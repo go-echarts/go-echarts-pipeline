@@ -3,10 +3,11 @@ name: Integration test
 on:
   workflow_dispatch:
   workflow_call:
-    ref-branch:
-      required: false
-      type: string
-      default: ''
+    inputs:
+      ref-branch:
+        required: false
+        type: string
+        default: ''
 
 jobs:
   go-echarts-pipeline:
