@@ -38,6 +38,12 @@ jobs:
           echo "Example repo ==>"
           ls examples/
 
+      - name: Remove renderer files out of test scope
+        working-directory: ./examples
+        run: |
+          rm -rf examples/renderer.go
+      
+
       - name: Run Examples generate original html files based on master branch
         working-directory: ./examples
         run: |
