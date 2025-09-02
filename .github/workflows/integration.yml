@@ -13,7 +13,7 @@ jobs:
   go-echarts-pipeline:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Set up Go
         uses: actions/setup-go@v5
@@ -25,7 +25,7 @@ jobs:
           echo "Checkout Example branch is: ${{ inputs.ref-branch }}, empty means default branch "
 
       - name: Checkout another repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: 'go-echarts/examples'
           ref: ${{ inputs.ref-branch }}
@@ -103,7 +103,7 @@ jobs:
           exit 1
 
       - name: Checkout integration pipeline repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: 'go-echarts/go-echarts-pipeline'
           path: 'go-echarts-pipeline'
